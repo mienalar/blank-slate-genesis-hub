@@ -1,11 +1,14 @@
-// Update this page (the content is just a fallback if you fail to update the page)
 
 const Index = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+      <div className="text-center space-y-4">
+        <h1 className="text-3xl font-semibold text-foreground">
+          Ready to Build
+        </h1>
+        <p className="text-muted-foreground max-w-md">
+          Your project is initialized and ready for development. Start by telling me what you'd like to create!
+        </p>
       </div>
     </div>
   );
