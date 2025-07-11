@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageSquare, Users, Clock, BarChart3 } from "lucide-react";
+import PricingSection from "./PricingSection";
 
 const LandingHero = () => {
   const features = [
@@ -83,6 +84,9 @@ const LandingHero = () => {
           </div>
         </div>
       </section>
+
+      {/* Pricing Section */}
+      <PricingSection />
 
       {/* How It Works */}
       <section className="px-6 py-16 bg-gray-50">
