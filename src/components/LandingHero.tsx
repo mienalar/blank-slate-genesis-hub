@@ -8,7 +8,7 @@ const LandingHero = () => {
   const features = [
     {
       icon: MessageSquare,
-      title: "Ежедневные планёрки",
+      title: "Ежедневные обсуждения",
       description: "Автоматические ежедневные опросы через Telegram-бота"
     },
     {
@@ -46,10 +46,10 @@ const LandingHero = () => {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-5xl font-bold text-gray-900 mb-6">
             Автоматизируйте
-            <span className="text-blue-600"> ежедневные планёрки</span> команды
+            <span className="text-blue-600"> ежедневные обсуждения</span> команды
           </h2>
           <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Telegram-бот с ИИ, который экономит командам МСБ часы каждую неделю, 
+            Telegram-бот с ИИ, который экономит командам часы каждую неделю, 
             автоматизируя рутинные задачи проектного управления, обновления статусов и командную коммуникацию.
           </p>
           <div className="space-x-4">
@@ -105,7 +105,7 @@ const LandingHero = () => {
             <div className="flex items-center space-x-6">
               <div className="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold">2</div>
               <div>
-                <h4 className="text-xl font-semibold text-gray-900">Настройте ежедневные планёрки</h4>
+                <h4 className="text-xl font-semibold text-gray-900">Настройте ежедневные обсуждения</h4>
                 <p className="text-gray-600">Установите предпочитаемое время для ежедневных опросов и уведомлений команды</p>
               </div>
             </div>
@@ -127,7 +127,7 @@ const LandingHero = () => {
             Готовы трансформировать командную коммуникацию?
           </h3>
           <p className="text-xl text-blue-100 mb-8">
-            Присоединяйтесь к командам МСБ, экономящим 5+ часов в неделю с автоматизированными планёрками
+            Присоединяйтесь к командам, экономящим 5+ часов в неделю с автоматизированными обсуждениями
           </p>
           <Button size="lg" variant="secondary" className="px-8 py-3">
             Начать бесплатный пробный период
