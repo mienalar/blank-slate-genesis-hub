@@ -1,10 +1,11 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, X } from "lucide-react";
 
 const PricingSection = () => {
+  const telegramBotUrl = "https://t.me/chatsupercopilotbot";
+
   const mainPlans = [
     {
       name: "Free",
@@ -154,20 +155,20 @@ const PricingSection = () => {
         </Badge>
       )}
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl">{plan.name}</CardTitle>
-        <CardDescription className="text-3xl font-bold text-blue-600">
+        <CardTitle className="text-xl sm:text-2xl">{plan.name}</CardTitle>
+        <CardDescription className="text-2xl sm:text-3xl font-bold text-blue-600">
           {plan.price}
-          <span className="text-sm font-normal text-gray-500">/мес</span>
+          <span className="text-xs sm:text-sm font-normal text-gray-500">/мес</span>
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-3">
         <div className="grid grid-cols-1 gap-2">
           {plan.features.map((feature: any, featureIndex: number) => (
-            <div key={featureIndex} className="flex items-start space-x-2 text-sm">
+            <div key={featureIndex} className="flex items-start space-x-2 text-xs sm:text-sm">
               {feature.included ? (
-                <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-500 mt-0.5 flex-shrink-0" />
               ) : (
-                <X className="h-4 w-4 text-gray-400 mt-0.5 flex-shrink-0" />
+                <X className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 mt-0.5 flex-shrink-0" />
               )}
               <div className={feature.included ? 'text-gray-900' : 'text-gray-400'}>
                 <div className="font-medium">{feature.name}</div>
@@ -178,11 +179,11 @@ const PricingSection = () => {
             </div>
           ))}
           {plan.additionalFeatures && plan.additionalFeatures.map((feature: any, featureIndex: number) => (
-            <div key={`additional-${featureIndex}`} className="flex items-start space-x-2 text-sm">
+            <div key={`additional-${featureIndex}`} className="flex items-start space-x-2 text-xs sm:text-sm">
               {feature.included ? (
-                <Check className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
+                <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-500 mt-0.5 flex-shrink-0" />
               ) : (
-                <X className="h-4 w-4 text-gray-400 mt-0.5 flex-shrink-0" />
+                <X className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 mt-0.5 flex-shrink-0" />
               )}
               <div className={feature.included ? 'text-gray-900' : 'text-gray-400'}>
                 <div className="font-medium">{feature.name}</div>
@@ -194,30 +195,33 @@ const PricingSection = () => {
           ))}
         </div>
         <Button 
-          className={`w-full mt-6 ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
+          className={`w-full mt-6 text-sm sm:text-base ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
           variant={plan.popular ? 'default' : 'outline'}
+          asChild
         >
-          {plan.name === 'Free' ? 'Начать бесплатно' : 
-           plan.name === 'Enterprise' ? 'Связаться с нами' : 'Выбрать план'}
+          <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer">
+            {plan.name === 'Free' ? 'Начать бесплатно' : 
+             plan.name === 'Enterprise' ? 'Связаться с нами' : 'Выбрать план'}
+          </a>
         </Button>
       </CardContent>
     </Card>
   );
 
   return (
-    <section className="px-6 py-16 bg-gray-50">
+    <section className="px-4 sm:px-6 py-12 sm:py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <h3 className="text-4xl font-bold text-gray-900 mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
             Тарифные планы
           </h3>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Выберите план, который подходит размеру вашей команды и потребностям проекта
           </p>
         </div>
 
         {/* Main Plans */}
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           {mainPlans.map((plan, index) => (
             <div key={index}>
               {renderPlanCard(plan)}
@@ -226,22 +230,22 @@ const PricingSection = () => {
         </div>
 
         {/* Enterprise Plan - Separate Section */}
-        <div className="border-t pt-12">
-          <div className="text-center mb-8">
-            <h4 className="text-2xl font-bold text-gray-900 mb-2">Корпоративные решения</h4>
-            <p className="text-gray-600">Для крупных организаций с особыми требованиями</p>
+        <div className="border-t pt-8 sm:pt-12">
+          <div className="text-center mb-6 sm:mb-8">
+            <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Корпоративные решения</h4>
+            <p className="text-gray-600 text-sm sm:text-base">Для крупных организаций с особыми требованиями</p>
           </div>
           <div className="max-w-2xl mx-auto">
             {renderPlanCard(enterprisePlan)}
           </div>
         </div>
 
-        <div className="text-center mt-12">
-          <p className="text-gray-600 mb-4">
+        <div className="text-center mt-8 sm:mt-12">
+          <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
             Все планы включают 14-дневный бесплатный пробный период
           </p>
-          <p className="text-sm text-gray-500">
-            Нужна помощь с выбором плана? <a href="#" className="text-blue-600 hover:underline">Свяжитесь с нами</a>
+          <p className="text-xs sm:text-sm text-gray-500">
+            Нужна помощь с выбором плана? <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Свяжитесь с нами</a>
           </p>
         </div>
       </div>
