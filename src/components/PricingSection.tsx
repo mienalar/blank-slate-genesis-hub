@@ -148,12 +148,12 @@ const PricingSection = () => {
                     ))}
                   </TableRow>
                 ))}
-                {/* Button Row */}
+                {/* Action Buttons Row */}
                 <TableRow>
-                  <TableCell></TableCell> {/* Пустая ячейка для столбца "Функция" */}
+                  <TableCell></TableCell>
                   {plans.map((plan, index) => (
-                    <TableCell key={index} className="text-center py-4">
-                      <Button
+                    <TableCell key={index} className="text-center">
+                      <Button 
                         className={`w-full text-sm sm:text-base ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
                         variant={plan.popular ? 'default' : 'outline'}
                         asChild
@@ -170,12 +170,6 @@ const PricingSection = () => {
             </Table>
           </div>
         </div>
-      </div>
-    </section>
-  );
-};
-
-export default PricingSection;
 
         <div className="text-center mt-8 sm:mt-12">
           <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
