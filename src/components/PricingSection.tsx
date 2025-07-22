@@ -2,211 +2,93 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, X } from "lucide-react";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const PricingSection = () => {
   const telegramBotUrl = "https://t.me/chatsupercopilotbot";
 
-  const mainPlans = [
+  const plans = [
     {
       name: "Free",
       price: "0,00 ₽",
       popular: false,
-      features: [
-        { name: "Размер команды", value: "До 4", included: true },
-        { name: "Чаты", value: "1", included: true },
-        { name: "Быстрое создание задач вручную", included: true },
-        { name: "История задач", value: "7 дней", included: true },
-        { name: "Экспорт в Google Sheets", included: true },
-        { name: "Умные напоминания о задачах", value: "1 в день", included: true },
-        { name: "Сводки задач в чат", value: "Ежедневно", included: true },
-        { name: "Поддержка", value: "Telegram", included: true },
-        { name: "Общий обзор задач по всей команде", included: true },
-        { name: "Автоматическое распознавание задач в чате", included: true },
-        { name: "Группировка задач по темам и меткам", included: false },
-        { name: "Метки и тред-задачи", included: false }
-      ]
+      participants: "до 3",
+      chats: "1",
+      taskCreation: true,
+      smartSearch: true,
+      taskGrouping: "❌",
+      taskEditing: false,
+      reminders: false,
+      integrations: "❌",
+      analytics: "❌",
+      support: "FAQ"
     },
     {
-      name: "Start",
+      name: "Basic",
       price: "299,00 ₽",
       popular: true,
-      features: [
-        { name: "Размер команды", value: "До 7", included: true },
-        { name: "Чаты", value: "До 3", included: true },
-        { name: "Быстрое создание задач вручную", included: true },
-        { name: "История задач", value: "30 дней", included: true },
-        { name: "Экспорт в Google Sheets", included: true },
-        { name: "Умные напоминания о задачах", value: "Много", included: true },
-        { name: "Сводки задач в чат", value: "ежедневно / еженедельно", included: true },
-        { name: "Поддержка", value: "Telegram", included: true },
-        { name: "Общий обзор задач по всей команде", included: true },
-        { name: "Автоматическое распознавание задач в чате", included: true },
-        { name: "Группировка задач по темам и меткам", included: true },
-        { name: "Метки и тред-задачи", included: true }
-      ],
-      additionalFeatures: [
-        { name: "Интеграции (Trello, Битрикс24)", included: true },
-        { name: "Сводки об активности команды", included: true },
-        { name: "Экспорт задач в Notion, CSV и PDF", included: true },
-        { name: "Прикрепление файлов к задачам", included: true }
-      ]
+      participants: "до 7",
+      chats: "до 3",
+      taskCreation: true,
+      smartSearch: true,
+      taskGrouping: "✔ (ручная)",
+      taskEditing: false,
+      reminders: false,
+      integrations: "❌",
+      analytics: "Базовая",
+      support: "Email"
     },
     {
       name: "Pro",
       price: "499,00 ₽",
       popular: false,
-      features: [
-        { name: "Размер команды", value: "До 15", included: true },
-        { name: "Чаты", value: "До 7", included: true },
-        { name: "Быстрое создание задач вручную", included: true },
-        { name: "История задач", value: "60 дней", included: true },
-        { name: "Экспорт в Google Sheets", included: true },
-        { name: "Умные напоминания о задачах", value: "Много", included: true },
-        { name: "Сводки задач в чат", value: "ежедневно / еженедельно", included: true },
-        { name: "Поддержка", value: "Telegram", included: true },
-        { name: "Общий обзор задач по всей команде", included: true },
-        { name: "Автоматическое распознавание задач в чате", included: true },
-        { name: "Группировка задач по темам и меткам", included: true },
-        { name: "Метки и тред-задачи", included: true }
-      ],
-      additionalFeatures: [
-        { name: "Интеграции (Trello, Битрикс24)", included: true },
-        { name: "Сводки об активности команды", included: true },
-        { name: "Экспорт задач в Notion, CSV и PDF", included: true },
-        { name: "Прикрепление файлов к задачам", included: true },
-        { name: "Аналитика и фильтры по статусу, срокам, участникам", included: true },
-        { name: "Автоархив задач", included: true }
-      ]
+      participants: "до 15",
+      chats: "до 7",
+      taskCreation: true,
+      smartSearch: true,
+      taskGrouping: "✔ (AI)",
+      taskEditing: true,
+      reminders: true,
+      integrations: "Trello и Битрикс24",
+      analytics: "Полная",
+      support: "Чат + email"
     },
     {
-      name: "Team",
-      price: "799,00 ₽",
+      name: "Enterprise",
+      price: "400 000,00 ₽",
       popular: false,
-      features: [
-        { name: "Размер команды", value: "До 30", included: true },
-        { name: "Чаты", value: "До 15", included: true },
-        { name: "Быстрое создание задач вручную", included: true },
-        { name: "История задач", value: "Без ограничений", included: true },
-        { name: "Экспорт в Google Sheets", included: true },
-        { name: "Умные напоминания о задачах", value: "Много", included: true },
-        { name: "Сводки задач в чат", value: "ежедневно / еженедельно / кастомизированно", included: true },
-        { name: "Поддержка", value: "Telegram", included: true },
-        { name: "Общий обзор задач по всей команде", included: true },
-        { name: "Автоматическое распознавание задач в чате", included: true },
-        { name: "Группировка задач по темам и меткам", included: true },
-        { name: "Метки и тред-задачи", included: true }
-      ],
-      additionalFeatures: [
-        { name: "Интеграции (Trello, Битрикс24)", included: true },
-        { name: "Сводки об активности команды", included: true },
-        { name: "Экспорт задач в Notion, CSV и PDF", included: true },
-        { name: "Прикрепление файлов к задачам", included: true },
-        { name: "Аналитика и фильтры по статусу, срокам, участникам", included: true },
-        { name: "Автоархив задач", included: true },
-        { name: "Ролевые политики", included: true },
-        { name: "Внешние участники", included: true },
-        { name: "SLA-поддержка", included: true }
-      ]
+      participants: "до 30",
+      chats: "до 15",
+      taskCreation: true,
+      smartSearch: true,
+      taskGrouping: "✔ (AI + ручная)",
+      taskEditing: true,
+      reminders: "✔ (расширенные)",
+      integrations: "Любые (API)",
+      analytics: "Расширенная",
+      support: "24/7 VIP"
     }
   ];
 
-  const enterprisePlan = {
-    name: "Enterprise",
-    price: "от 400 000,00 ₽",
-    popular: false,
-    features: [
-      { name: "Размер команды", value: "Без ограничений", included: true },
-      { name: "Чаты", value: "Без ограничений", included: true },
-      { name: "Быстрое создание задач вручную", included: true },
-      { name: "История задач", value: "Без ограничений", included: true },
-      { name: "Экспорт в Google Sheets", included: true },
-      { name: "Умные напоминания о задачах", value: "Много", included: true },
-      { name: "Сводки задач в чат", value: "ежедневно / еженедельно / кастомизированно", included: true },
-      { name: "Поддержка", value: "Аккаунт менеджер", included: true },
-      { name: "Общий обзор задач по всей команде", included: true },
-      { name: "Автоматическое распознавание задач в чате", included: true },
-      { name: "Группировка задач по темам и меткам", included: true },
-      { name: "Метки и тред-задачи", included: true }
-    ],
-    additionalFeatures: [
-      { name: "Интеграции (Trello, Битрикс24)", included: true },
-      { name: "Сводки об активности команды", included: true },
-      { name: "Экспорт задач в Notion, CSV и PDF", included: true },
-      { name: "Прикрепление файлов к задачам", included: true },
-      { name: "Аналитика и фильтры по статусу, срокам, участникам", included: true },
-      { name: "Автоархив задач", included: true },
-      { name: "Ролевые политики", included: true },
-      { name: "Внешние участники", included: true },
-      { name: "SLA-поддержка", included: true },
-      { name: "White-label", included: true },
-      { name: "Гибкая настройка интерфейса и логики под себя", included: true },
-      { name: "Выделенный менеджер", included: true },
-      { name: "Событийное логирование", included: true },
-      { name: "Индивидуальные интеграции под ваши системы", included: true },
-      { name: "API для подключения к своим инструментам", included: true }
-    ]
-  };
+  const features = [
+    { key: "participants", label: "Кол-во участников" },
+    { key: "chats", label: "Кол-во чатов" },
+    { key: "taskCreation", label: "Создание задач" },
+    { key: "smartSearch", label: "Умный поиск по чатам" },
+    { key: "taskGrouping", label: "Группировка задач" },
+    { key: "taskEditing", label: "Редактирование задач" },
+    { key: "reminders", label: "Напоминания о просроченных задачах" },
+    { key: "integrations", label: "Интеграции" },
+    { key: "analytics", label: "Аналитика" },
+    { key: "support", label: "Поддержка" }
+  ];
 
-  const renderPlanCard = (plan: any) => (
-    <Card className={`relative h-full ${plan.popular ? 'border-blue-500 shadow-lg scale-105' : ''}`}>
-      {plan.popular && (
-        <Badge className="absolute -top-2 left-1/2 transform -translate-x-1/2 bg-blue-600">
-          Популярный
-        </Badge>
-      )}
-      <CardHeader className="text-center">
-        <CardTitle className="text-xl sm:text-2xl">{plan.name}</CardTitle>
-        <CardDescription className="text-2xl sm:text-3xl font-bold text-blue-600">
-          {plan.price}
-          <span className="text-xs sm:text-sm font-normal text-gray-500">/мес</span>
-        </CardDescription>
-      </CardHeader>
-      <CardContent className="space-y-3">
-        <div className="grid grid-cols-1 gap-2">
-          {plan.features.map((feature: any, featureIndex: number) => (
-            <div key={featureIndex} className="flex items-start space-x-2 text-xs sm:text-sm">
-              {feature.included ? (
-                <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-500 mt-0.5 flex-shrink-0" />
-              ) : (
-                <X className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 mt-0.5 flex-shrink-0" />
-              )}
-              <div className={feature.included ? 'text-gray-900' : 'text-gray-400'}>
-                <div className="font-medium">{feature.name}</div>
-                {feature.value && (
-                  <div className="text-xs text-gray-500">{feature.value}</div>
-                )}
-              </div>
-            </div>
-          ))}
-          {plan.additionalFeatures && plan.additionalFeatures.map((feature: any, featureIndex: number) => (
-            <div key={`additional-${featureIndex}`} className="flex items-start space-x-2 text-xs sm:text-sm">
-              {feature.included ? (
-                <Check className="h-3 w-3 sm:h-4 sm:w-4 text-green-500 mt-0.5 flex-shrink-0" />
-              ) : (
-                <X className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 mt-0.5 flex-shrink-0" />
-              )}
-              <div className={feature.included ? 'text-gray-900' : 'text-gray-400'}>
-                <div className="font-medium">{feature.name}</div>
-                {feature.value && (
-                  <div className="text-xs text-gray-500">{feature.value}</div>
-                )}
-              </div>
-            </div>
-          ))}
-        </div>
-        <Button 
-          className={`w-full mt-6 text-sm sm:text-base ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
-          variant={plan.popular ? 'default' : 'outline'}
-          asChild
-        >
-          <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer">
-            {plan.name === 'Free' ? 'Начать бесплатно' : 
-             plan.name === 'Enterprise' ? 'Связаться с нами' : 'Выбрать план'}
-          </a>
-        </Button>
-      </CardContent>
-    </Card>
-  );
+  const renderValue = (value: any) => {
+    if (typeof value === 'boolean') {
+      return value ? <Check className="h-4 w-4 text-green-500 mx-auto" /> : <X className="h-4 w-4 text-gray-400 mx-auto" />;
+    }
+    return value;
+  };
 
   return (
     <section className="px-4 sm:px-6 py-12 sm:py-16 bg-gray-50">
@@ -220,24 +102,67 @@ const PricingSection = () => {
           </p>
         </div>
 
-        {/* Main Plans */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
-          {mainPlans.map((plan, index) => (
-            <div key={index}>
-              {renderPlanCard(plan)}
-            </div>
-          ))}
+        {/* Pricing Table */}
+        <div className="bg-white rounded-lg shadow-lg overflow-hidden mb-8 sm:mb-12">
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-gray-50">
+                  <TableHead className="font-semibold text-gray-900">Функция</TableHead>
+                  {plans.map((plan, index) => (
+                    <TableHead key={index} className="text-center min-w-[150px]">
+                      <div className="space-y-1">
+                        <div className={`font-bold text-lg ${plan.popular ? 'text-blue-600' : 'text-gray-900'}`}>
+                          {plan.name}
+                        </div>
+                        <div className={`text-sm font-semibold ${plan.popular ? 'text-blue-600' : 'text-gray-600'}`}>
+                          {plan.price}
+                          <span className="text-xs font-normal">/мес</span>
+                        </div>
+                        {plan.popular && (
+                          <Badge className="bg-blue-600 text-white text-xs">
+                            Популярный
+                          </Badge>
+                        )}
+                      </div>
+                    </TableHead>
+                  ))}
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {features.map((feature, featureIndex) => (
+                  <TableRow key={featureIndex} className="hover:bg-gray-50">
+                    <TableCell className="font-medium text-gray-900">
+                      {feature.label}
+                    </TableCell>
+                    {plans.map((plan, planIndex) => (
+                      <TableCell key={planIndex} className="text-center">
+                        {renderValue(plan[feature.key as keyof typeof plan])}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </div>
 
-        {/* Enterprise Plan - Separate Section */}
-        <div className="border-t pt-8 sm:pt-12">
-          <div className="text-center mb-6 sm:mb-8">
-            <h4 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Корпоративные решения</h4>
-            <p className="text-gray-600 text-sm sm:text-base">Для крупных организаций с особыми требованиями</p>
-          </div>
-          <div className="max-w-2xl mx-auto">
-            {renderPlanCard(enterprisePlan)}
-          </div>
+        {/* Action Buttons */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
+          {plans.map((plan, index) => (
+            <div key={index} className="text-center">
+              <Button 
+                className={`w-full text-sm sm:text-base ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
+                variant={plan.popular ? 'default' : 'outline'}
+                asChild
+              >
+                <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer">
+                  {plan.name === 'Free' ? 'Начать бесплатно' : 
+                   plan.name === 'Enterprise' ? 'Связаться с нами' : 'Выбрать план'}
+                </a>
+              </Button>
+            </div>
+          ))}
         </div>
 
         <div className="text-center mt-8 sm:mt-12">
