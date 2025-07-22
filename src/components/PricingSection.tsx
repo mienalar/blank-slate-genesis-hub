@@ -176,7 +176,7 @@ const PricingSection = () => {
 
         <div className="text-center mt-8 sm:mt-12">
           <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base font-sans">
-            Все планы НИТЬ включают 14-дневный бесплатный пробный период
+            Все планы включают 14-дневный бесплатный пробный период
           </p>
           <p className="text-xs sm:text-sm text-gray-500 font-sans">
             Нужна помощь с выбором плана? <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Свяжитесь с нами</a>
