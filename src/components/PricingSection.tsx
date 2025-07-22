@@ -97,14 +97,17 @@ const PricingSection = () => {
   };
 
   return (
-    <section className="px-4 sm:px-6 py-12 sm:py-16 bg-gray-50">
+    <section className="px-4 sm:px-6 py-12 sm:py-16 bg-gradient-to-b from-blue-50 to-gray-100">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12">
-          <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">
+          <div className="mb-4">
+            <span className="text-4xl font-bold text-blue-800 font-sans">НИТЬ</span>
+          </div>
+          <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 font-sans">
             Тарифные планы
           </h3>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Выберите план, который подходит размеру вашей команды и потребностям проекта
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-sans">
+            Выберите план, который подходит размеру вашей команды и потребностям проекта с НИТЬ
           </p>
         </div>
 
@@ -113,20 +116,20 @@ const PricingSection = () => {
           <div className="overflow-x-auto">
             <Table>
               <TableHeader>
-                <TableRow className="bg-gray-50">
-                  <TableHead className="font-semibold text-gray-900">Функция</TableHead>
+                <TableRow className="bg-blue-50">
+                  <TableHead className="font-semibold text-gray-900 font-sans">Функция</TableHead>
                   {plans.map((plan, index) => (
                     <TableHead key={index} className="text-center min-w-[150px]">
                       <div className="space-y-1">
-                        <div className={`font-bold text-lg ${plan.popular ? 'text-blue-600' : 'text-gray-900'}`}>
+                        <div className={`font-bold text-lg font-sans ${plan.popular ? 'text-blue-600' : 'text-gray-900'}`}>
                           {plan.name}
                         </div>
-                        <div className={`text-sm font-semibold ${plan.popular ? 'text-blue-600' : 'text-gray-600'}`}>
+                        <div className={`text-sm font-semibold font-sans ${plan.popular ? 'text-blue-600' : 'text-gray-600'}`}>
                           {plan.price}
                           <span className="text-xs font-normal">/мес</span>
                         </div>
                         {plan.popular && (
-                          <Badge className="bg-blue-600 text-white text-xs">
+                          <Badge className="bg-blue-600 text-white text-xs font-sans">
                             Популярный
                           </Badge>
                         )}
@@ -137,8 +140,8 @@ const PricingSection = () => {
               </TableHeader>
               <TableBody>
                 {features.map((feature, featureIndex) => (
-                  <TableRow key={featureIndex} className="hover:bg-gray-50">
-                    <TableCell className="font-medium text-gray-900">
+                  <TableRow key={featureIndex} className="hover:bg-blue-50">
+                    <TableCell className="font-medium text-gray-900 font-sans">
                       {feature.label}
                     </TableCell>
                     {plans.map((plan, planIndex) => (
@@ -154,7 +157,7 @@ const PricingSection = () => {
                   {plans.map((plan, index) => (
                     <TableCell key={index} className="text-center">
                       <Button 
-                        className={`w-full text-xs sm:text-sm ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
+                        className={`w-full text-xs sm:text-sm font-sans ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : 'border-blue-600 text-blue-600 hover:bg-blue-100'}`}
                         variant={plan.popular ? 'default' : 'outline'}
                         asChild
                       >
@@ -172,10 +175,10 @@ const PricingSection = () => {
         </div>
 
         <div className="text-center mt-8 sm:mt-12">
-          <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
-            Все планы включают 14-дневный бесплатный пробный период
+          <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base font-sans">
+            Все планы НИТЬ включают 14-дневный бесплатный пробный период
           </p>
-          <p className="text-xs sm:text-sm text-gray-500">
+          <p className="text-xs sm:text-sm text-gray-500 font-sans">
             Нужна помощь с выбором плана? <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Свяжитесь с нами</a>
           </p>
         </div>
