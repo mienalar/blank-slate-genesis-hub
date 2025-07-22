@@ -63,7 +63,7 @@ const PricingSection = () => {
       smartSearch: true,
       taskGrouping: "AI + ручная",
       taskEditing: true,
-      reminders: "✔ (расширенные)",
+      reminders: "расширенные",
       integrations: "Любые (API)",
       analytics: "Расширенная",
       support: "24/7 VIP"
