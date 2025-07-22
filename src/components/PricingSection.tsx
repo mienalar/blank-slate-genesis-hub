@@ -154,7 +154,7 @@ const PricingSection = () => {
                   {plans.map((plan, index) => (
                     <TableCell key={index} className="text-center">
                       <Button 
-                        className={`w-full text-sm sm:text-base ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
+                        className={`w-full text-xs sm:text-sm ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
                         variant={plan.popular ? 'default' : 'outline'}
                         asChild
                       >
