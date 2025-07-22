@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { MessageSquare, Users, Clock, BarChart3 } from "lucide-react";
 import PricingSection from "./PricingSection";
+import FAQSection from "./FAQSection";
 
 const LandingHero = () => {
   const telegramBotUrl = "https://t.me/chatsupercopilotbot";
@@ -129,6 +130,9 @@ const LandingHero = () => {
           </div>
         </div>
       </section>
+
+      {/* FAQ Section */}
+      <FAQSection />
 
       {/* CTA Section */}
       <section className="px-4 sm:px-6 py-12 sm:py-16 bg-blue-600">

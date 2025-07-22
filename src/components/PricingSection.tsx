@@ -112,7 +112,7 @@ const PricingSection = () => {
 
   const enterprisePlan = {
     name: "Enterprise",
-    price: "от 54 999,00 ₽",
+    price: "от 400 000,00 ₽",
     popular: false,
     features: [
       { name: "Размер команды", value: "Без ограничений", included: true },
