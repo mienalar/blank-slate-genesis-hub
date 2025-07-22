@@ -148,30 +148,34 @@ const PricingSection = () => {
                     ))}
                   </TableRow>
                 ))}
+                {/* Button Row */}
+                <TableRow>
+                  <TableCell></TableCell> {/* Пустая ячейка для столбца "Функция" */}
+                  {plans.map((plan, index) => (
+                    <TableCell key={index} className="text-center py-4">
+                      <Button
+                        className={`w-full text-sm sm:text-base ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
+                        variant={plan.popular ? 'default' : 'outline'}
+                        asChild
+                      >
+                        <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer">
+                          {plan.name === 'Free' ? 'Начать бесплатно' : 
+                           plan.name === 'Enterprise' ? 'Связаться с нами' : 'Выбрать план'}
+                        </a>
+                      </Button>
+                    </TableCell>
+                  ))}
+                </TableRow>
               </TableBody>
             </Table>
           </div>
         </div>
+      </div>
+    </section>
+  );
+};
 
-        {/* Action Buttons */}
-        <div className="overflow-x-auto">
-          <div className="grid grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 min-w-[600px]">
-            {plans.map((plan, index) => (
-              <div key={index} className="text-center">
-                <Button 
-                  className={`w-full text-sm sm:text-base ${plan.popular ? 'bg-blue-600 hover:bg-blue-700' : ''}`}
-                  variant={plan.popular ? 'default' : 'outline'}
-                  asChild
-                >
-                  <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer">
-                    {plan.name === 'Free' ? 'Начать бесплатно' : 
-                     plan.name === 'Enterprise' ? 'Связаться с нами' : 'Выбрать план'}
-                  </a>
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
+export default PricingSection;
 
         <div className="text-center mt-8 sm:mt-12">
           <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">
