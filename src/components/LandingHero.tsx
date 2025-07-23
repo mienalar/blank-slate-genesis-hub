@@ -38,7 +38,7 @@ const LandingHero = () => {
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-2">
             <MessageSquare className="h-6 w-6 sm:h-8 sm:w-8 text-blue-600" />
-            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">ChatCopilot</h1>
+            <h1 className="text-xl sm:text-2xl font-bold text-gray-900">НИТЬ</h1>
           </div>
           <Button variant="outline" asChild>
             <a href={telegramBotUrl} target="_blank" rel="noopener noreferrer">
