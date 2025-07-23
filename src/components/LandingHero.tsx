@@ -6,7 +6,7 @@ import PricingSection from "./PricingSection";
 import FAQSection from "./FAQSection";
 
 const LandingHero = () => {
-  const telegramBotUrl = "https://t.me/chatsupercopilotbot";
+  const telegramBotUrl = "https://t.me/SSuperChatBot";
 
   const features = [
     {
