@@ -54,11 +54,26 @@ const PricingSection = () => {
       support: "Чат + email"
     },
     {
-      name: "Enterprise",
-      price: "400 000,00 ₽",
+      name: "Team",
+      price: "799,00 ₽",
       popular: false,
       participants: "до 30",
       chats: "до 15",
+      taskCreation: true,
+      smartSearch: true,
+      taskGrouping: "AI",
+      taskEditing: true,
+      reminders: true,
+      integrations: "Trello и Битрикс24",
+      analytics: "Полная",
+      support: "Чат + email"
+    },
+    {
+      name: "Enterprise",
+      price: "400 000,00 ₽",
+      popular: false,
+      participants: "∞",
+      chats: "∞",
       taskCreation: true,
       smartSearch: true,
       taskGrouping: "AI + ручная",
