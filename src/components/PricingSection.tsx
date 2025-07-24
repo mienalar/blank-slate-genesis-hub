@@ -5,7 +5,7 @@ import { Check, X } from "lucide-react";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 const PricingSection = () => {
-  const telegramBotUrl = "https://t.me/chatsupercopilotbot";
+  const telegramBotUrl = "https://t.me/SSuperChatBot";
 
   const plans = [
     {
